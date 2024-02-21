@@ -2,6 +2,7 @@
 """Defines the City class as a subclass of BaseModel."""
 from sqlalchemy import Column, String, ForeignKey
 from sqlalchemy.orm import relationship
+
 import models
 from models import storage_type
 from models.base_model import BaseModel, Base
