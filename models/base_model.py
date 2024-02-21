@@ -30,7 +30,6 @@ class BaseModel:
         """
         self.id = str(uuid.uuid4())
         self.created_at = datetime.utcnow()
-        self.updated_at = datetime.utcnow()
         if kwargs:
             # The __class__ key if being deleted from the kwargs
             # in the BaseModel __init__ method without first checking
