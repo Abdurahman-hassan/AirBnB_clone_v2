@@ -2,7 +2,6 @@
 """Defines the Place class as a subclass of BaseModel."""
 from sqlalchemy import Column, String, Integer, Float, ForeignKey, Table
 from sqlalchemy.orm import relationship
-
 import models
 from models.base_model import BaseModel, Base
 

@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """ Defines the Amenity class as a subclass of BaseModel."""
 from sqlalchemy import Column, String
-
 import models
 from models.base_model import BaseModel, Base
 
