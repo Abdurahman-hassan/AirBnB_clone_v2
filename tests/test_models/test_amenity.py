@@ -1,12 +1,12 @@
 """Unit tests for the Amenity class."""
 import unittest
 import os
-
 from models.amenity import Amenity
 from datetime import datetime
 from time import sleep
 
-# Add a condition to skip the tests of file storage if the environment variable is set to 'db'
+# Add a condition to skip the tests of file storage
+# if the environment variable is set to 'db'
 condition = os.getenv('HBNB_TYPE_STORAGE') != 'db'
 
 
