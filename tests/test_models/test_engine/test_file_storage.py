@@ -9,7 +9,7 @@ from models.engine.file_storage import get_class_name_to_class
 
 # Add a condition to skip the tests of file storage
 # if the environment variable is set to 'db'
-condition = os.getenv('HBNB_TYPE_STORAGE') != 'db'
+condition = os.getenv('HBNB_TYPE_STORAGE') == 'db'
 
 
 @unittest.skipIf(condition, "Reason for skipping the tests")

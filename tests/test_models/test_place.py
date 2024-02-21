@@ -6,7 +6,7 @@ from time import sleep
 
 from models.place import Place
 
-condition = os.getenv('HBNB_TYPE_STORAGE') != 'db'
+condition = os.getenv('HBNB_TYPE_STORAGE') == 'db'
 
 
 @unittest.skipIf(condition, "Reason for skipping the tests")

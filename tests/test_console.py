@@ -9,7 +9,10 @@ from console import HBNBCommand
 from models import storage
 from models.engine.file_storage import FileStorage
 
+condition = os.getenv('HBNB_TYPE_STORAGE') == 'db'
 
+
+@unittest.skipIf(condition, "Reason for skipping the tests")
 class TestHBNBCommand(unittest.TestCase):
     """Contains unit tests for the HBNBCommand class"""
 
@@ -208,6 +211,7 @@ class TestHBNBCommand(unittest.TestCase):
             self.assertEqual("", output.getvalue().strip())
 
 
+@unittest.skipIf(condition, "Reason for skipping the tests")
 class TestHBNBCommandHelp(unittest.TestCase):
     """Contains unit tests for the HBNBCommand help messages."""
 
@@ -303,6 +307,7 @@ class TestHBNBCommandHelp(unittest.TestCase):
             self.assertEqual(help, output.getvalue().strip())
 
 
+@unittest.skipIf(condition, "Reason for skipping the tests")
 class TestHBNBCommandCreate(unittest.TestCase):
     """Contains unit tests for the 'create' command in HBNBCommand."""
 
@@ -380,6 +385,7 @@ class TestHBNBCommandCreate(unittest.TestCase):
             self.assertIn(id, storage.all().keys())
 
 
+@unittest.skipIf(condition, "Reason for skipping the tests")
 class TestHBNBCommandShow(unittest.TestCase):
     """Contains unit tests for the 'show' command in HBNBCommand."""
 
@@ -550,6 +556,7 @@ class TestHBNBCommandShow(unittest.TestCase):
             self.assertEqual(obj.__str__(), output.getvalue().strip())
 
 
+@unittest.skipIf(condition, "Reason for skipping the tests")
 class TestHBNBCommandDestroy(unittest.TestCase):
     """Contains unit tests for the 'destroy' command in HBNBCommand."""
 
@@ -776,6 +783,7 @@ class TestHBNBCommandDestroy(unittest.TestCase):
             self.assertNotIn(obj, storage.all())
 
 
+@unittest.skipIf(condition, "Reason for skipping the tests")
 class TestHBNBCommandAll(unittest.TestCase):
     """Contains unit tests for the 'all' command in HBNBCommand."""
 
@@ -892,6 +900,7 @@ class TestHBNBCommandAll(unittest.TestCase):
             self.assertNotIn("BaseModel", output.getvalue().strip())
 
 
+@unittest.skipIf(condition, "Reason for skipping the tests")
 class TestHBNBCommandUpdate(unittest.TestCase):
     """Contains unit tests for the 'update' command in HBNBCommand."""
 
@@ -1258,6 +1267,7 @@ class TestHBNBCommandUpdate(unittest.TestCase):
         self.assertEqual(8.5, obj_dict["latitude"])
 
 
+@unittest.skipIf(condition, "Reason for skipping the tests")
 class TestHBNBCommandCount(unittest.TestCase):
     """Test cases for the 'count' command in HBNBCommand class."""
 

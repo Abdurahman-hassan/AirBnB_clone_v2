@@ -31,6 +31,8 @@ class DBStorage:
         """query on the current database session"""
         new_dict = {}
         for clss in get_class_name_to_class():
+            if clss == 'BaseModel':
+                continue
             if (cls is None or cls is get_class_name_to_class()[clss]
                     or cls is clss):
                 objs = \
