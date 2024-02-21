@@ -17,7 +17,7 @@ else:
 class BaseModel:
     """Base class for data models."""
     if models.storage_type == "db":
-        id = Column(String(60), primary_key=True)
+        id = Column(String(60), primary_key=True, nullable=False)
         created_at = Column(DateTime, default=datetime.utcnow)
         updated_at = Column(DateTime, default=datetime.utcnow)
 
@@ -29,6 +29,9 @@ class BaseModel:
             *args: Variable length argument list.
             **kwargs: Arbitrary keyword arguments.
         """
+        self.id = str(uuid.uuid4())
+        self.created_at = datetime.utcnow()
+        self.updated_at = datetime.utcnow()
         if kwargs:
             # The __class__ key if being deleted from the kwargs
             # in the BaseModel __init__ method without first checking
@@ -44,10 +47,6 @@ class BaseModel:
                             datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f"))
                 else:
                     setattr(self, key, value)
-        else:
-            self.id = str(uuid.uuid4())
-            self.created_at = datetime.now()
-            self.updated_at = datetime.now()
 
     def __str__(self):
         """
@@ -62,7 +61,7 @@ class BaseModel:
         """Save the current state of the object and trigger
         the storage save process.
         """
-        self.updated_at = datetime.now()
+        self.updated_at = datetime.utcnow()
         models.storage.new(self)
         models.storage.save()
 
