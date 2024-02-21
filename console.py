@@ -5,15 +5,13 @@ storage and data models.
 """
 import cmd
 import re
-
 import models
 from models import storage
 from models.engine.file_storage import get_class_name_to_class
-
 import shlex  # for splitting the line along spaces except in double quotes
 from shlex import split
-
 from datetime import datetime
+
 
 def parse_command(command):
 
