@@ -31,13 +31,14 @@ class DBStorage:
         """query on the current database session"""
         new_dict = {}
         for clss in get_class_name_to_class():
-            if (cls is None or cls is get_class_name_to_class()[clss]
-                    or cls is clss):
-                objs = \
-                    self.__session.query(get_class_name_to_class()[clss]).all()
-                for obj in objs:
-                    key = obj.__class__.__name__ + '.' + obj.id
-                    new_dict[key] = obj
+            if clss != 'BaseModel':
+                if (cls is None or cls is get_class_name_to_class()[clss]
+                        or cls is clss):
+                    objs = (self.__session.query
+                            (get_class_name_to_class()[clss]).all())
+                    for obj in objs:
+                        key = obj.__class__.__name__ + '.' + obj.id
+                        new_dict[key] = obj
         return (new_dict)
 
     def new(self, obj):
