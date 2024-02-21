@@ -3,11 +3,11 @@ import os
 import unittest
 from datetime import datetime
 from time import sleep
-
 from models.base_model import BaseModel
 from models import storage
 
-# Add a condition to skip the tests of file storage if the environment variable is set to 'db'
+# Add a condition to skip the tests of file storage
+# if the environment variable is set to 'db'
 condition = os.getenv('HBNB_TYPE_STORAGE') != 'db'
 
 

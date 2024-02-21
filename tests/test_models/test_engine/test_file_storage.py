@@ -2,18 +2,13 @@
 import os
 import unittest
 from unittest.mock import patch
-
-# from dotenv import load_dotenv
-
 from models import storage
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 from models.engine.file_storage import get_class_name_to_class
 
-# load environment variables from .env file
-# load_dotenv()
-
-# Add a condition to skip the tests of file storage if the environment variable is set to 'db'
+# Add a condition to skip the tests of file storage
+# if the environment variable is set to 'db'
 condition = os.getenv('HBNB_TYPE_STORAGE') != 'db'
 
 

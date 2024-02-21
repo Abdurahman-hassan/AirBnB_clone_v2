@@ -1,7 +1,6 @@
 """Unit tests for the State class."""
 import unittest
 import os
-
 from models.state import State
 from datetime import datetime
 from time import sleep
@@ -70,6 +69,7 @@ class TestState(unittest.TestCase):
         state = State()
         state.name = "A" * 129
         self.assertEqual(state.name, "A" * 129)
+
 
 @unittest.skipIf(condition, "Reason for skipping the tests")
 class TestStateInit(unittest.TestCase):
@@ -149,6 +149,7 @@ class TestStateInit(unittest.TestCase):
         with self.assertRaises(ValueError):
             State(created_at='invalid_date')
 
+
 @unittest.skipIf(condition, "Reason for skipping the tests")
 class TeststateSave(unittest.TestCase):
     """Contains tests related to the save method of State instances"""
@@ -192,6 +193,7 @@ class TeststateSave(unittest.TestCase):
         sleep(0.1)
         with self.assertRaises(TypeError):
             obj.save(None)
+
 
 @unittest.skipIf(condition, "Reason for skipping the tests")
 class TeststateToDict(unittest.TestCase):
